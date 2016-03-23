@@ -6,7 +6,7 @@
 
 This repository contains a module and a CLI for working with neuron finding algorithm results. It is used by the [neurofinder](https://github.com/codeneuro/neurofinder) benchmarking challenge to compare ground truth results to results from submitted algorithms.
 
-You can use it to compare ground truth against algorithm results and load result files in standard formats, either as a command line tool, or as a module inside a python project.
+You can use it to compare ground truth against algorithm results and load result files in standard formats, either as a command line tool, or as a module inside a python project (supports Python 2.7 and 3.4).
 
 ## install
 
@@ -49,8 +49,6 @@ match(a, b)
 ```
 
 ## methods
-
-This module supports both Python 2.7 and 3.4, and provides the following methods.
 
 #### `neurofinder.load(file)`
 
