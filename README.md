@@ -40,7 +40,7 @@ Load regions from either a `JSON` or `MAT` file.
 
 #### `neurofinder.match(a, b, threshold=inf)`
 
-Match regions from `a` to `b` based on distances between their centers. Returns a list of indicies specifying, for each region in `a`, what the index of the matching region in `b` is. If `unique` is true, will ensure uniqueness of matches. If `min_distance` is less than `inf`, will not allow matches that exceed this distance.
+Match regions from `a` to `b` based on distances between their centers. Returns a list of indicies specifying, for each region in `a`, what the index of the matching region in `b` is. If `threshold` is less than `inf`, will not allow matches that exceed this distance.
 
 #### `neurofinder.centers(a, b, threshold=inf)`
 
