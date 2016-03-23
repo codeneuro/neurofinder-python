@@ -1,16 +1,21 @@
 import json
+import os
 from numpy import inf, NaN, newaxis, argmin, delete, asarray, isnan, sum, nanmean
 from scipy.spatial.distance import cdist
 from regional import one, many
 
 def load(file):
     """
-    Load neuronal regions from a file.
+    Load neuronal regions from a file or string.
     """
-    with open(file, 'r') as f:
-        values = json.load(f)
-        return many([v['coordinates'] for v in values])
-    
+    if os.path.isfile(file):
+        with open(file, 'r') as f:
+            values = json.load(f)
+    else:
+        values = json.loads(file)
+
+    return many([v['coordinates'] for v in values])
+        
 def match(a, b, threshold=inf):
     """
     Find unique matches between two sets of regions.

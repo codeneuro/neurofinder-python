@@ -4,11 +4,15 @@
 
 This repository contains a module and a CLI for working with neuron finding algorithm results. It is used by the [neurofinder](https://github.com/codeneuro/neurofinder) benchmarking challenge to compare ground truth results to results from submitted algorithms.
 
-Assumes a standard format for spatial regions, in either `JSON` or `MAT`.
+Assumes the following standard `JSON` format for spatial regions
 
-The `JSON` format is:
-
-And the `MAT` format is:
+```
+[
+  {"coordinates": [[x, y], ...]}, 
+  {"coordinates": [[x, y], ...]}, 
+  ...
+]
+```
 
 ## install
 
@@ -26,11 +30,7 @@ To evaluate a pair of results, just pass two `JSON` files as arguments
 neurofinder evaluate neurons1.json neurons2.json
 ```
 
-You can also pass `MAT` files as one or both arguments
-
-```
-neurofinder evaluate neurons1.mat neurons2.mat
-```
+You can also pass `JSON` strings.
 
 ## methods
 

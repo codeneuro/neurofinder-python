@@ -1,4 +1,5 @@
 import os
+import json
 import click
 from .. import load, centers, shapes
 
@@ -13,4 +14,4 @@ def evaluate(file1, file2):
     combined = 2 * (recall * precision) / (recall + precision)
     
     result = {'combined': combined, 'overlap': overlap, 'precision': precision, 'recall': recall, 'exactness': exactness}
-    print(result)
+    print json.dumps(result)
