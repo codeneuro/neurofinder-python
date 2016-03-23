@@ -76,7 +76,9 @@ Compare shapes between regions in `a` and `b` after first finding matches. For e
 
 ## metrics
 
-Five asymmetric metrics are computed when comparing two sets of regions, all based on standard [information retrieval](https://en.wikipedia.org/wiki/Information_retrieval) metrics. The first two are based entirely on the central location of each region, ignoring the particular spatial structure. First, a greedy matching procedure is used to find, for each region in the first set, a unique match in the second set. Then the following metrics are computed:
+Five asymmetric metrics are computed when comparing two sets of regions, all based on standard concepts from [information retrieval](https://en.wikipedia.org/wiki/Information_retrieval). Because the metrics are asymmetric, **it matters which set of regions is first or second**; by convention, we typically compare ground truth to estimated.
+
+The first two metrics are based entirely on the central location of each region, ignoring the particular spatial structure. First, a greedy matching procedure is used to find, for each region in the first set, a unique match in the second set. Then the following metrics are computed:
 
 - `precision` fraction of matched regions divided by the number of regions in the first set
 - `recall` fraction of matched regions divided by the number of regions in the second set
