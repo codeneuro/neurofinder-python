@@ -27,10 +27,10 @@ pip install neurofinder
 To evaluate a pair of results, just pass two `JSON` files as arguments
 
 ```
-neurofinder evaluate neurons1.json neurons2.json
+neurofinder evaluate a.json b.json
 ```
 
-You can also pass `JSON` strings.
+You can also pass `JSON` strings. Usually the first file will be ground truth and the second will be the result of an algorithm.
 
 ## methods
 
