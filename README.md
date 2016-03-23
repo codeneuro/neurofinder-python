@@ -1,5 +1,7 @@
 # neurofinder-python
 
+[![Travis](https://img.shields.io/travis/codeneuro/neurofinder-python.svg)]()
+
 > python module for working with neuron finding algorithm results
 
 This repository contains a module and a CLI for working with neuron finding algorithm results. It is used by the [neurofinder](https://github.com/codeneuro/neurofinder) benchmarking challenge to compare ground truth results to results from submitted algorithms.
