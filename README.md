@@ -38,6 +38,18 @@ You can also pass `JSON` strings. Usually the first file will be ground truth an
 
 ## methods
 
+You can also use this module inside a Python project, for example
+
+```python
+from neurofinder import load, match
+
+a = load('a.json')
+b = load('b.json')
+match(a, b)
+```
+
+It supports both Python 2.7 and 3.4, and provides the following methods.
+
 #### `neurofinder.load(file)`
 
 Load regions from either a `JSON` or `MAT` file.
