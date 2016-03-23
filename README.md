@@ -52,7 +52,7 @@ match(a, b)
 
 #### `neurofinder.load(file)`
 
-Load regions from either a `JSON` or `MAT` file.
+Load regions from a `JSON` file.
 
 #### `neurofinder.match(a, b, threshold=inf)`
 
