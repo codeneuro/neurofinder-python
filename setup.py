@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from setuptools import setup
+from setuptools import setup, find_packages()
 
 version = '1.0.0'
 
@@ -13,7 +13,7 @@ setup(
     author='freeman-lab',
     author_email='the.freeman.lab@gmail.com',
     url='https://github.com/freeman-lab/neurofinder-python',
-    packages=['neurofinder'],
+    packages=find_packages(),
     install_requires=required,
     entry_points = {"console_scripts": ['neurofinder = neurofinder.cli:cli']},
     long_description='See ' + 'https://github.com/freeman-lab/neurofinder-python',
