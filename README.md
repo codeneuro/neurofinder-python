@@ -88,10 +88,10 @@ A high `precision` means that most of the target regions in the first set were f
 The third metric `score` is simply a combination of the first two, using the equation 
 
 ```python
-2 * (recall * precision) / (recall + precision)
+score = 2 * (recall * precision) / (recall + precision)
 ```
 
-The final two metrics are based on the exact match of spatial regions. First the same matching procedure as above is used to find region pairs, then for every pair two measures are computed
+The final two metrics are based on the exact match of spatial regions. First the same matching procedure as above is used to find region pairs, then for every pair, two measures are computed
 
 - `overlap` fraction of intersecting pixels divided by the number of pixels in the first region
 - `exactness` fraction of intersecting pixels divided by the number of pixels in the second region
