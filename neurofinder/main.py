@@ -117,7 +117,7 @@ def centers(a, b, threshold=inf):
     result[isnan(result)] = inf
     compare = lambda x: x < threshold
 
-    recall = sum(map(compare, result)) / float(a.count)
-    precision = sum(map(compare, result)) / float(b.count)
+    recall = sum(asarray(map(compare, result))) / float(a.count)
+    precision = sum(asarray(map(compare, result))) / float(b.count)
 
     return recall, precision
