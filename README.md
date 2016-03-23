@@ -6,15 +6,7 @@
 
 This repository contains a module and a CLI for working with neuron finding algorithm results. It is used by the [neurofinder](https://github.com/codeneuro/neurofinder) benchmarking challenge to compare ground truth results to results from submitted algorithms.
 
-Assumes the following standard `JSON` format for spatial regions
-
-```
-[
-  {"coordinates": [[x, y], ...]}, 
-  {"coordinates": [[x, y], ...]}, 
-  ...
-]
-```
+You can use it to compare ground truth against algorithm results and load result files in standard formats, either as a command line tool, or as a module inside a python project.
 
 ## install
 
@@ -30,6 +22,16 @@ To evaluate a pair of results, just pass two `JSON` files as arguments
 
 ```
 neurofinder evaluate a.json b.json
+```
+
+We assume the results are in the following format for spatial regions:
+
+```
+[
+  {"coordinates": [[x, y], ...]}, 
+  {"coordinates": [[x, y], ...]}, 
+  ...
+]
 ```
 
 You can also pass `JSON` strings. Usually the first file will be ground truth and the second will be the result of an algorithm.
