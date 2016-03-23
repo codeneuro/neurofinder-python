@@ -6,8 +6,9 @@ from .commands import evaluate
 @click.group(options_metavar='', subcommand_metavar='<command>', context_settings=settings)
 def cli():
     """
-    Hi! This is a command line tool for comparing neuron finding algorithms.
+    Hi! This is a tool for working with neuron finding algorithm results.
+
+    Check out the list of commands to see what you can do.
     """
-    print 'hi'
 
 cli.add_command(evaluate)
