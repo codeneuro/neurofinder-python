@@ -1,6 +1,6 @@
 # neurofinder-python
 
-[![Travis](https://img.shields.io/travis/codeneuro/neurofinder-python?style=flat-square.svg)]()
+[![Travis](https://img.shields.io/travis/codeneuro/neurofinder-python.svg?style=flat-square)]()
 
 > python module for working with neuron finding algorithm results
 
