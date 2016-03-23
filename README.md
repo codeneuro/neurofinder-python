@@ -1,8 +1,8 @@
 # neurofinder-python
 
-> python module for testing neuron finding algorithms.
+> python module for working with neuron finding algorithm results
 
-This repository contains a module and a CLI for working with neuron finding algorithm results. It is used by the [neurofinder](https://github.com/neurofinder) benchmarking challenge to compare ground truth results to results from submitted algorithms.
+This repository contains a module and a CLI for working with neuron finding algorithm results. It is used by the [neurofinder](https://github.com/codeneuro/neurofinder) benchmarking challenge to compare ground truth results to results from submitted algorithms.
 
 Assumes a standard format for spatial regions, in either `JSON` or `MAT`.
 

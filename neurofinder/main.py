@@ -11,28 +11,17 @@ def load(file):
         values = json.load(f)
         return many([v['coordinates'] for v in values])
     
-def match(a, b, unique=True, min_distance=inf):
+def match(a, b, threshold=inf):
     """
-    Find matches between two sets of regions.
-
-    Can select nearest matches with or without enforcing uniqueness;
-    if unique is False, will return the closest source in other for
-    each source in self, possibly repeating sources multiple times
-    if unique is True, will only allow each source in other to be matched
-    with a single source in self, as determined by a greedy selection procedure.
-    The min_distance parameter can be used to prevent far-away sources from being
-    chosen during greedy selection.
+    Find unique matches between two sets of regions.
 
     Params
     ------
     a, b : regions
         The regions to match.
 
-    unique : boolean, optional, deafult = True
-        Whether to only return unique matches.
-
-    min_distance : scalar, optiona, default = inf
-        Minimum distance to use when selecting matches.
+    threshold : scalar, optional, default = inf
+        Threshold distance to use when selecting matches.
     """
     targets = b.center
     target_inds = range(0, len(targets))
@@ -45,7 +34,7 @@ def match(a, b, unique=True, min_distance=inf):
             update = 0
         else:
             dists = cdist(targets, s.center[newaxis])
-            if dists.min() < min_distance:
+            if dists.min() < threshold:
                 ind = argmin(dists)
             else:
                 update = 0
@@ -53,27 +42,26 @@ def match(a, b, unique=True, min_distance=inf):
         # apply updates, otherwise add a nan
         if update == 1:
             matches.append(target_inds[ind])
-            if unique is True:
-                targets = delete(targets, ind, axis=0)
-                target_inds = delete(target_inds, ind)
+            targets = delete(targets, ind, axis=0)
+            target_inds = delete(target_inds, ind)
         else:
             matches.append(NaN)
 
     return matches
 
-def shapes(a, b, min_distance=inf):
+def shapes(a, b, threshold=inf):
     """
     Compare shapes between two sets of regions.
-    
+
     Parameters
     ----------
     a, b : regions
         The regions for which to estimate overlap.
 
-    min_distance : scalar, optional, default = inf
-        Minimum distance to use when matching indices.
+    threshold : scalar, optional, default = inf
+        Threshold distance to use when matching indices.
     """
-    inds = match(a, b, unique=True, min_distance=min_distance)
+    inds = match(a, b, threshold=threshold)
     d = []
     for jj, ii in enumerate(inds):
         if ii is not NaN:
@@ -90,7 +78,7 @@ def shapes(a, b, min_distance=inf):
 
     return overlap, exactness
 
-def centers(a, b, threshold=5):
+def centers(a, b, threshold=inf):
     """
     Compare centers between two sets of regions.
 
@@ -100,7 +88,7 @@ def centers(a, b, threshold=5):
     The F score is defined as 2 * (recall * precision) / (recall + precision)
 
     Before computing metrics, all sources in self are matched to other,
-    and a minimum distance can be set to control matching.
+    and a threshold can be set to control matching.
 
     Parameters
     ----------
@@ -109,11 +97,8 @@ def centers(a, b, threshold=5):
 
     threshold : scalar, optional, default = 5
         The distance below which a source is considered found.
-
-    min_distance : scalar, optional, default = inf
-        Minimum distance to use when matching indices.
     """
-    inds = match(a, b, unique=True, min_distance=threshold)
+    inds = match(a, b, threshold=threshold)
 
     d = []
     for jj, ii in enumerate(inds):

@@ -10,7 +10,7 @@ def evaluate(file1, file2):
     b = load(file2)
     precision, recall = centers(a, b)
     overlap, exactness = shapes(a, b)
-    average = 2 * (recall * precision) / (recall + precision)
+    combined = 2 * (recall * precision) / (recall + precision)
     
-    result = {'average': average, 'overlap': overlap, 'precision': precision, 'recall': recall, 'exactness': exactness}
+    result = {'combined': combined, 'overlap': overlap, 'precision': precision, 'recall': recall, 'exactness': exactness}
     print(result)
