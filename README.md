@@ -36,7 +36,7 @@ We assume the results are in the following format for spatial regions:
 
 You can also pass `JSON` strings. Usually the first file will be ground truth and the second will be the result of an algorithm.
 
-## methods
+## use as a module
 
 You can also use this module inside a Python project, for example
 
@@ -48,7 +48,9 @@ b = load('b.json')
 match(a, b)
 ```
 
-It supports both Python 2.7 and 3.4, and provides the following methods.
+## methods
+
+This module supports both Python 2.7 and 3.4, and provides the following methods.
 
 #### `neurofinder.load(file)`
 
