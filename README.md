@@ -85,7 +85,11 @@ The first two metrics are based entirely on the central location of each region,
 
 A high `precision` means that most of the target regions in the first set were found in the second. A high `recall` means that few regions in the second set were identified that did not have matches in the first set.
 
-The third metric `score` is simply a combination of the first two, using the equation `2 * (recall * precision) / (recall + precision)`.
+The third metric `score` is simply a combination of the first two, using the equation 
+
+```python
+2 * (recall * precision) / (recall + precision)
+```
 
 The final two metrics are based on the exact match of spatial regions. First the same matching procedure as above is used to find region pairs, then for every pair two measures are computed
 
