@@ -3,7 +3,7 @@ import json
 import click
 from .. import load, centers, shapes
 
-@click.argument('files', nargs=2, metavar='<files>', required=True)
+@click.argument('files', nargs=2, metavar='<files: ground truth, estimate>', required=True)
 @click.option('--threshold', default=5, help='threshold distance')
 @click.command('evaluate', short_help='compare results of two algorithms', options_metavar='<options>')
 def evaluate(files, threshold):
