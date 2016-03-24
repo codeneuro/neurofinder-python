@@ -19,4 +19,4 @@ def evaluate(files, threshold):
       combined = 2 * (recall * precision) / (recall + precision)
     
     result = {'combined': round(combined, 4), 'inclusion': round(inclusion, 4), 'precision': round(precision, 4), 'recall': round(recall, 4), 'exclusion': round(exclusion, 4)}
-    print json.dumps(result)
+    print(json.dumps(result))
