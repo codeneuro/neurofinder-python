@@ -77,11 +77,11 @@ def shapes(a, b, threshold=inf):
     result = asarray(d)
 
     if sum(~isnan(result)) > 0:
-        overlap, exactness = tuple(nanmean(result, axis=0))
+        inclusion, exclusion = tuple(nanmean(result, axis=0))
     else:
-        overlap, exactness = 0.0, 1.0
+        inclusion, exclusion = 0.0, 0.0
 
-    return overlap, exactness
+    return inclusion, exclusion
 
 def centers(a, b, threshold=inf):
     """

@@ -85,16 +85,15 @@ The first two metrics are based entirely on the central location of each region,
 
 A high `precision` means that most of the target regions in the first set were found in the second. A high `recall` means that few regions in the second set were identified that did not have matches in the first set.
 
-The third metric `score` is simply a combination of the first two, using the equation 
+The third metric `combined` is simply a combination of the first two, using the equation 
 
 ```python
-score = 2 * (recall * precision) / (recall + precision)
+combined = 2 * (recall * precision) / (recall + precision)
 ```
 
-The final two metrics are based on the exact match of spatial regions. First the same matching procedure as above is used to find region pairs, then for every pair, two measures are computed
+The final two metrics are based on the overlap of spatial regions. First the same matching procedure as above is used to find region pairs, then for every pair, two measures are computed
 
-- `overlap` fraction of intersecting pixels divided by the number of pixels in the first region
-- `exactness` fraction of intersecting pixels divided by the number of pixels in the second region
+- `inclusion` fraction of intersecting pixels divided by the number of pixels in the first region
+- `exclusion` fraction of intersecting pixels divided by the number of pixels in the second region
 
-These are then averaged over pairs to obtain final scores.
-
+A high `inclusion` means that all pixels in the first region were correctly included in the second, and a high `exclusion` means that pixels outside the first region were correctly excluded from the second. These are then averaged over pairs to obtain final scores.
