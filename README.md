@@ -80,10 +80,10 @@ Five asymmetric metrics are computed when comparing two sets of regions, all bas
 
 The first two metrics are based entirely on the central location of each region, ignoring the particular spatial structure. First, a greedy matching procedure is used to find, for each region in the first set, a unique match in the second set. Then the following metrics are computed:
 
-- `precision` fraction of matched regions divided by the number of regions in the first set
-- `recall` fraction of matched regions divided by the number of regions in the second set
+- `recall` fraction of matched regions divided by the number of regions in the first set
+- `precision` fraction of matched regions divided by the number of regions in the second set
 
-A high `precision` means that most of the target regions in the first set were found in the second. A high `recall` means that few regions in the second set were identified that did not have matches in the first set.
+A high `recall` means that most of the target regions in the first set were found in the second. A high `precision` means that few regions in the second set were identified that did not have matches in the first set.
 
 The third metric `combined` is simply a combination of the first two, using the equation 
 
